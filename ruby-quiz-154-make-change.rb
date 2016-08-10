@@ -34,11 +34,16 @@ def make_change(amount, coins = [25, 10, 5, 1])
       amount -= coin 
     end
   end
-  
+
   p change
 end
 
 make_change(99)
+
+# does not account yet for cases such as this:
+ # >> make_change(14, [10, 7, 1])
+ #    => [7, 7]
+
 
 
 
