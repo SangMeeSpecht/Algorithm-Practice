@@ -3,22 +3,42 @@
 # Assume that you have an infinite number of coins to work with
 # Using USA currency (.25, .10, .05, .01)
 
-def make_change(amount)
+# def make_change(amount)
+#   change = []
+#   until amount == 0
+#     if amount - 25 >= 0
+#       change << 25
+#       amount -= 25
+#     elsif amount - 10 >= 0
+#       change << 10
+#       amount -= 10
+#     elsif amount - 5 >= 0
+#       change << 5
+#       amount -= 5
+#     elsif amount - 1 >= 0
+#       change << 1
+#       amount -= 1
+#     end
+#   end
+#   p change 
+# end
+
+
+# dynamic to allow for any denomination of coins
+def make_change(amount, coins = [25, 10, 5, 1])
   change = []
-  until amount == 0
-    if amount - 25 >= 0
-      change << 25
-      amount -= 25
-    elsif amount - 10 >= 0
-      change << 10
-      amount -= 10
-    elsif amount - 5 >= 0
-      change << 5
-      amount -= 5
-    elsif amount - 1 >= 0
-      change << 1
-      amount -= 1
+
+  coins.sort.reverse.each do |coin|
+    while amount - coin >= 0
+      change << coin
+      amount -= coin 
     end
   end
-  p change 
+  
+  p change
 end
+
+make_change(99)
+
+
+
